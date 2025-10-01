@@ -62,10 +62,10 @@ async def get_latest_discoveries(limit: int = 10):
     try:
         db = get_database()
         
-        # Get most recent discoveries
+        # Get most recent discoveries (include all statuses, not just confirmed)
         cursor = db.exoplanets.find(
-            {"pl_status": "CONFIRMED"},
-            sort=[("pl_disc", -1)],
+            {},  # Remove status filter to include all planets
+            sort=[("pl_disc", -1), ("created_at", -1)],  # Sort by discovery year, then creation time
             limit=limit
         )
         

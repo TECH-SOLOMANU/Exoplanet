@@ -18,6 +18,7 @@ shap==0.43.0
 
 # Data Processing
 astropy==5.3.4
+aiohttp==3.9.1
 requests==2.31.0
 aiohttp==3.9.1
 
