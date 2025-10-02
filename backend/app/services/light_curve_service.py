@@ -560,7 +560,7 @@ class LightCurveService:
             features['flux_range'] = float(np.max(flux) - np.min(flux))
             
             # Detect potential transits
-            potential_transits = self._find_transit_events(time, flux)
+            potential_transits = self._find_transit_events_sync(time, flux)
             features['transit_count'] = len(potential_transits)
             
             if potential_transits:
@@ -621,7 +621,7 @@ class LightCurveService:
         """Fit theoretical transit models to the data"""
         try:
             # Find potential transit events first
-            transit_events = self._find_transit_events(time, flux)
+            transit_events = self._find_transit_events_sync(time, flux)
             
             if not transit_events:
                 return {"message": "No transit events found for modeling"}

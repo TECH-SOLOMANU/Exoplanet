@@ -14,6 +14,7 @@ import {
   TravelExplore,
   CloudUpload,
   Psychology,
+  ShowChart,
   Info,
   Menu as MenuIcon,
 } from '@mui/icons-material';
@@ -29,6 +30,7 @@ const Navbar = () => {
     { label: 'Predictions', path: '/predictions', icon: <TravelExplore /> },
     { label: 'Upload Data', path: '/upload', icon: <CloudUpload /> },
     { label: 'Models', path: '/models', icon: <Psychology /> },
+    { label: 'Light Curves', path: '/light-curves', icon: <ShowChart /> },
     { label: 'About', path: '/about', icon: <Info /> },
   ];
 

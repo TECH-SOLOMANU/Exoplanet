@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.api.v1.endpoints import nasa_data, predictions, upload, models
+from app.api.v1.endpoints import nasa_data, predictions, upload, models, light_curves
 
 api_router = APIRouter()
 
@@ -8,6 +8,12 @@ api_router.include_router(
     nasa_data.router, 
     prefix="/nasa", 
     tags=["NASA Data"]
+)
+
+api_router.include_router(
+    light_curves.router,
+    prefix="/nasa",
+    tags=["Light Curves"]
 )
 
 api_router.include_router(

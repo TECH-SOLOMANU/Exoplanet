@@ -9,7 +9,8 @@ import Navbar from './components/Navigation/Navbar';
 import Dashboard from './pages/Dashboard';
 import Predictions from './pages/Predictions';
 import Upload from './pages/Upload';
-import Models from './pages/Models';
+import ModelManagement from './pages/ModelManagement';
+import LightCurveAnalysis from './pages/LightCurveAnalysis';
 import About from './pages/About';
 
 // NASA space theme
@@ -78,7 +79,8 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/predictions" element={<Predictions />} />
               <Route path="/upload" element={<Upload />} />
-              <Route path="/models" element={<Models />} />
+              <Route path="/models" element={<ModelManagement />} />
+              <Route path="/light-curves" element={<LightCurveAnalysis />} />
               <Route path="/about" element={<About />} />
             </Routes>
           </Box>
