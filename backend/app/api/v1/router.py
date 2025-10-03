@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.api.v1.endpoints import nasa_data, predictions, upload, models, light_curves
+from app.api.v1.endpoints import nasa_data, predictions, upload, models, light_curves, chatbot
 
 api_router = APIRouter()
 
@@ -26,6 +26,12 @@ api_router.include_router(
     upload.router, 
     prefix="/upload", 
     tags=["Data Upload"]
+)
+
+api_router.include_router(
+    chatbot.router,
+    prefix="/chatbot",
+    tags=["Educational Chatbot"]
 )
 
 api_router.include_router(

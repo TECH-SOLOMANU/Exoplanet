@@ -6,6 +6,7 @@ import { Box } from '@mui/material';
 
 // Components
 import Navbar from './components/Navigation/Navbar';
+import ChatBot from './components/ChatBot/ChatBot';
 import Dashboard from './pages/Dashboard';
 import Predictions from './pages/Predictions';
 import Upload from './pages/Upload';
@@ -84,6 +85,9 @@ function App() {
               <Route path="/about" element={<About />} />
             </Routes>
           </Box>
+          
+          {/* Educational Chatbot - Available on all pages */}
+          <ChatBot />
         </Box>
       </Router>
     </ThemeProvider>

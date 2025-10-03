@@ -16,14 +16,28 @@ class Settings(BaseSettings):
     
     # Security
     SECRET_KEY: str = "nasa-space-apps-challenge-2025-exoplanet-detection"
+    JWT_SECRET_KEY: str = "nasa-space-apps-challenge-2025-jwt-secret"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 8  # 8 days
+    ENCRYPTION_KEY: str = ""
+    SESSION_SECRET: str = ""
+    
+    # Environment
+    ENVIRONMENT: str = "development"
+    DEBUG: bool = True
+    LOG_LEVEL: str = "INFO"
     
     # CORS
     ALLOWED_HOSTS: List[str] = ["*"]
+    CORS_ORIGINS: str = "http://localhost:3000"
     
     # NASA APIs
     NASA_EXOPLANET_ARCHIVE_URL: str = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync"
     NASA_MAST_URL: str = "https://mast.stsci.edu/api/v0.1"
+    NASA_API_KEY: str = ""
+    NASA_BASE_URL: str = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync"
+    
+    # AI/ML APIs
+    GEMINI_API_KEY: str = ""
     
     # ML Models
     MODEL_PATH: str = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "models")

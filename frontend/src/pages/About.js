@@ -45,6 +45,7 @@ const About = () => {
                 <Chip label="Dual ML Models (Tabular + CNN)" color="primary" />
                 <Chip label="Explainable AI with SHAP" color="primary" />
                 <Chip label="Real-time Web Dashboard" color="primary" />
+                <Chip label="Educational AI Chatbot" color="secondary" />
                 <Chip label="MongoDB Storage" color="primary" />
                 <Chip label="Docker Deployment" color="primary" />
               </Box>
@@ -119,6 +120,63 @@ const About = () => {
                   </Typography>
                 </Grid>
               </Grid>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        <Grid item xs={12}>
+          <Card>
+            <CardContent>
+              <Typography variant="h6" gutterBottom>
+                🤖 Educational AI Chatbot
+              </Typography>
+              <Typography variant="body1" paragraph>
+                Our platform features an intelligent educational assistant designed to help students 
+                and researchers learn about exoplanets. The chatbot provides:
+              </Typography>
+              <Grid container spacing={2}>
+                <Grid item xs={12} md={6}>
+                  <Typography variant="subtitle1" gutterBottom>
+                    <strong>📚 Educational Content</strong>
+                  </Typography>
+                  <Typography variant="body2">
+                    Comprehensive knowledge base covering exoplanet definitions, detection methods, 
+                    NASA missions, and the latest discoveries.
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography variant="subtitle1" gutterBottom>
+                    <strong>🎯 Adaptive Learning</strong>
+                  </Typography>
+                  <Typography variant="body2">
+                    Three learning levels (Beginner, Intermediate, Advanced) with personalized 
+                    content and suggestions based on your background.
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography variant="subtitle1" gutterBottom>
+                    <strong>🚀 Mission Information</strong>
+                  </Typography>
+                  <Typography variant="body2">
+                    Detailed information about Kepler, K2, TESS, and James Webb Space Telescope 
+                    missions and their contributions to exoplanet science.
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography variant="subtitle1" gutterBottom>
+                    <strong>💡 Interactive Learning</strong>
+                  </Typography>
+                  <Typography variant="body2">
+                    Smart suggestions, fun facts, and guided learning paths to help you 
+                    explore the fascinating world of exoplanets.
+                  </Typography>
+                </Grid>
+              </Grid>
+              <Box sx={{ mt: 2, p: 2, backgroundColor: '#e3f2fd', borderRadius: 1 }}>
+                <Typography variant="body2" sx={{ fontStyle: 'italic' }}>
+                  💬 Click the chat icon in the bottom-right corner to start learning!
+                </Typography>
+              </Box>
             </CardContent>
           </Card>
         </Grid>
