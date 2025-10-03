@@ -66,10 +66,30 @@ This project addresses the NASA Space Apps Challenge requirements:
 
 - Python 3.8+
 - Node.js 16+
-- Docker (optional)
+- Docker (recommended)
 - MongoDB
 
-### Installation
+### 🐳 Docker Deployment (Recommended)
+
+**Easiest way to get started:**
+
+```bash
+# Windows
+./deploy.bat
+
+# Linux/Mac
+chmod +x deploy.sh && ./deploy.sh
+
+# Or manually
+docker-compose up -d
+```
+
+**Access your application:**
+- 🌐 Frontend: http://localhost:3000
+- 🔧 Backend: http://localhost:8000
+- 📚 API Docs: http://localhost:8000/docs
+
+### 🛠️ Manual Installation
 
 1. **Clone and setup backend:**
 ```bash
@@ -92,11 +112,33 @@ cd backend && uvicorn app.main:app --reload
 cd frontend && npm start
 ```
 
-### Docker Deployment
+## 🌐 Deployment Options
 
-```bash
-docker-compose up --build
-```
+### 🚀 Production Deployment
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for comprehensive deployment guide.
+
+**Quick deployment options:**
+
+1. **Cloud Platforms (Free tiers available):**
+   - Render.com: Connect GitHub repo → Deploy
+   - Railway.app: `railway up`
+   - Heroku: Container deployment ready
+
+2. **AWS ECS:**
+   ```bash
+   chmod +x deploy-aws.sh && ./deploy-aws.sh
+   ```
+
+3. **Google Cloud Run:**
+   ```bash
+   chmod +x deploy-gcp.sh && ./deploy-gcp.sh
+   ```
+
+4. **Production Docker:**
+   ```bash
+   docker-compose -f docker-compose.prod.yml up -d
+   ```
 
 ## 📊 Data Sources
 
