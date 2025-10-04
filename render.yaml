@@ -3,8 +3,9 @@ services:
     name: nasa-exoplanet-backend
     env: python
     region: oregon
-    buildCommand: cd backend && pip install -r requirements.txt
-    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    rootDirectory: backend
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
     envVars:
       - key: ENVIRONMENT
@@ -26,13 +27,15 @@ services:
 
   - type: web
     name: nasa-exoplanet-frontend
-    buildCommand: cd frontend && npm install && npm run build
-    staticPublishPath: frontend/build
+    env: node
+    region: oregon
+    rootDirectory: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npx serve -s build -l $PORT
     pullRequestPreviewsEnabled: false
     envVars:
       - key: REACT_APP_API_URL
         fromService:
           type: web
           name: nasa-exoplanet-backend
-
           property: host
