@@ -1,13 +1,11 @@
 services:
-  # Backend service
   - type: web
     name: nasa-exoplanet-backend
     env: python
-    pythonVersion: "3.8"
     region: oregon
-    rootDirectory: backend
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    pythonVersion: 3.8
+    buildCommand: pip install --upgrade pip && pip install -r backend/requirements.txt
+    startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
     envVars:
       - key: ENVIRONMENT
@@ -27,13 +25,12 @@ services:
       - key: CORS_ORIGINS
         value: https://*.onrender.com,http://localhost:3000
 
-  # Frontend service
   - type: static
     name: nasa-exoplanet-frontend
     region: oregon
-    rootDirectory: frontend
-    buildCommand: npm install && npm run build
-    staticPublishPath: build
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/build
+    pullRequestPreviewsEnabled: false
     envVars:
       - key: REACT_APP_API_URL
         fromService:
