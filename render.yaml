@@ -24,7 +24,7 @@ services:
       - key: CORS_ORIGINS
         value: https://*.onrender.com,http://localhost:3000
 
-  - type: static
+  - type: web
     name: nasa-exoplanet-frontend
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/build
@@ -34,4 +34,5 @@ services:
         fromService:
           type: web
           name: nasa-exoplanet-backend
+
           property: host
