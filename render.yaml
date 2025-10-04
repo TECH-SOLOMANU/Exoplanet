@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: nasa-exoplanet-backend
+    env: python
+    region: oregon
+    buildCommand: cd backend && pip install -r requirements.txt
+    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: false
+      - key: GEMINI_API_KEY
+        value: AIzaSyD5Kbc22m2kJ0n1W9ywK2ZvjGFdoHi-hdU
+      - key: NASA_API_KEY
+        value: 1aHSHUGfUHp8kHmsEU1csXq8CgpweERxwJLlc9PO
+      - key: SECRET_KEY
+        value: m0_ba1y29A6wAt836_ROZ3LTnasy6ncIq8GbnAl9vVc
+      - key: JWT_SECRET_KEY
+        value: xAuhNUfbwwCTCjnupWFLWJR4Npc6SwFgZnvlrdGhY7NyT62_Nc-7AppHx4nvPoxSpNVuavc9IdldTxBd08dPhw
+      - key: DATABASE_NAME
+        value: exoplanet_db
+      - key: CORS_ORIGINS
+        value: https://*.onrender.com,http://localhost:3000
+
+  - type: static
+    name: nasa-exoplanet-frontend
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/build
+    pullRequestPreviewsEnabled: false
+    envVars:
+      - key: REACT_APP_API_URL
+        fromService:
+          type: web
+          name: nasa-exoplanet-backend
+          property: host
